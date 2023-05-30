@@ -22,15 +22,23 @@ const images = [
     }
 ];
 
-/*Milestone 0:
-Come nel primo carosello realizzato, focalizziamoci prima sulla creazione del markup statico: costruiamo il container e
-inseriamo l'immagine grande in modo da poter stilare lo slider.*/
+const imagesList=['img/01.webp', 'img/02.webp', 'img/03.webp', 'img/04.webp', 'img/05.webp'];
 
+const containerCarousel= document.querySelector('div#containercarousel');
 
-/*Milestone 1: Ora rimuoviamo i contenuti statici e usiamo l’array di oggetti letterali per popolare dinamicamente il carosello.
-Al click dell'utente sulle frecce verso sinistra o destra, l'immagine attiva diventerà visibile e dovremo aggiungervi titolo e testo.
-*/
+for(i=0; i<images.length; i++){
+    containerCarousel.innerHTML += `<div class="carouselitem active"> <img src="img/${imagesList[i]}" alt=""> </div>`;
+    
+}
 
-/*Milestone 2:
-Aggiungere il ciclo infinito del carosello. Ovvero se la miniatura attiva è la prima e l'utente clicca la freccia verso l'alto, 
-la miniatura che deve attivarsi sarà l'ultima e viceversa per l'ultima miniatura se l'utente clicca la freccia verso il basso.*/
+let item=document.querySelectorAll('carouselitem');
+const prevButton=document.querySelector('div.beforebutton');
+const nextButton=document.querySelector('div.nextbutton');
+
+prevButton.addEventListener('click', function(){
+    let activeIndex= 4;
+    activeIndex=activeIndex-1;
+    document.querySelector('div.carouselitem.active').classList.remove('active');
+    document.querySelectorAll('div.carouselitem').classList.add('active');
+
+})

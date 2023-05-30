@@ -12,7 +12,7 @@ h1{
     color:white;
     font-weight: bolder;
 }
-div.containercarousel{
+div#containercarousel{
     margin:0 auto;
     width:700px;
     height:500px;
@@ -21,8 +21,12 @@ div.containercarousel{
 .carouselitem{
     width:100%;
     height:100%;
+    display:none;
 }
-.containercarousel img{
+.carouselitem.active{
+    display:block;
+}
+#containercarousel img{
     width:100%;
     height:100%;
     border-radius:20%;
@@ -42,6 +46,7 @@ div.nextbutton{
     font-size:4rem;
     font-weight: bolder;
     font-family: 'Aoboshi One', serif;
+    cursor:grab;
 }
 div.nextbutton{
     right:0px;
