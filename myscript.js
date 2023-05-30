@@ -24,21 +24,27 @@ const images = [
 
 const imagesList=['img/01.webp', 'img/02.webp', 'img/03.webp', 'img/04.webp', 'img/05.webp'];
 
-const containerCarousel= document.querySelector('div#containercarousel');
+const containerCarousel= document.querySelector('div.containercarousel.active');
 
 for(i=0; i<images.length; i++){
     containerCarousel.innerHTML += `<div class="carouselitem active"> <img src="img/${imagesList[i]}" alt=""> </div>`;
-    
-}
 
+    let activeIndex= 4;
 let item=document.querySelectorAll('carouselitem');
 const prevButton=document.querySelector('div.beforebutton');
-const nextButton=document.querySelector('div.nextbutton');
 
 prevButton.addEventListener('click', function(){
-    let activeIndex= 4;
-    activeIndex=activeIndex-1;
+
+    if (activeIndex==0){
+        activeIndex=imagesList-1;
+    }
+    else{
+        activeIndex=activeIndex-1;
+    }
     document.querySelector('div.carouselitem.active').classList.remove('active');
-    document.querySelectorAll('div.carouselitem').classList.add('active');
+    imagesList[activeIndex].classList.add('active');
 
 })
+
+    
+}
